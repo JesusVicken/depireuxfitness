@@ -1,37 +1,3 @@
-// 'use client'
-
-// import { Parallax } from 'react-scroll-parallax'
-// import Image from 'next/image'
-
-// export default function Projects() {
-//     return (
-//         <div className="relative h-[700px] md:h-[800px] lg:h-[900px] overflow-hidden">
-//             <Parallax speed={-20} className="absolute inset-0">
-//                 <div className="relative w-full h-full">
-//                     <Image
-//                         src="/remadalinda.jpg"
-//                         alt="Canoa Havaiana"
-//                         fill
-//                         className="object-cover"
-//                         style={{
-//                             objectPosition: 'center 30%',
-//                         }}
-//                         priority
-//                     />
-//                 </div>
-//             </Parallax>
-
-//             <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-10">
-//                 <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center px-4">
-//                     Entre no nosso grupo e fique por dentro da programação de passeios e experiências do CPP Extreme BSB
-//                 </h2>
-//             </div>
-//         </div>
-//     )
-// }
-
-
-
 'use client'
 
 import { Parallax } from 'react-scroll-parallax'
@@ -47,13 +13,10 @@ export default function Projects() {
             <Parallax speed={-20} className="absolute inset-0">
                 <div className="relative w-full h-full">
                     <Image
-                        src="/remadalinda.jpg"
-                        alt="Canoa Havaiana"
+                        src="/cris1.jpeg"
+                        alt="Cris Background"
                         fill
                         className="object-cover"
-                        style={{
-                            objectPosition: 'center 30%',
-                        }}
                         priority
                     />
                 </div>
@@ -65,7 +28,7 @@ export default function Projects() {
                 data-aos-delay="300"
             >
                 <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center max-w-3xl px-4">
-                    Entre no nosso grupo e fique por dentro da programação de passeios e experiências do CPP Extreme BSB
+                    Treinamento pessoal em casa e virtual, Yoga, Flow, Calistenia, Alongamento e Mobilidade e Treinos de Canoa Havaiana
                 </h2>
 
                 {/* Botão para entrar no grupo do WhatsApp */}
@@ -82,7 +45,7 @@ export default function Projects() {
                         aria-label="Entrar no grupo do WhatsApp"
                     >
                         <WhatsappLogo weight="fill" className="w-7 h-7" />
-                        <span>Entrar no grupo</span>
+                        <span>Entrar em contato</span>
                     </a>
                 </div>
             </div>

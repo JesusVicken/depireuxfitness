@@ -16,10 +16,10 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "CPP Extreme BSB",
-  description: "CPP Extreme BSB Site",
+  title: "Cris Personal",
+  description: "Cris Personal",
   icons: {
-    icon: "/cpp.jpeg",
+    icon: "/cris1.jpeg",
   },
 }
 
