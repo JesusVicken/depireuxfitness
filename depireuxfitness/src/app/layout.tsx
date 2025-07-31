@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { AosInit } from "./_components/aos-init"
 import { ParallaxWrapper } from "./_components/ParallaxWrapper"
+import { GsapInit } from "./_components/gsap-init"
+
 
 
 const geistSans = Geist({
@@ -34,6 +36,7 @@ export default function RootLayout({
         <ParallaxWrapper>
           {children}
           <AosInit />
+          <GsapInit />
         </ParallaxWrapper>
       </body>
     </html>
