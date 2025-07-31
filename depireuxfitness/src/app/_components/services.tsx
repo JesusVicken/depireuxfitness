@@ -1,10 +1,14 @@
-"use client"
+'use client'
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import useEmblaCarousel from "embla-carousel-react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import AOS from "aos"
 import Image from "next/image"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const certificates = [
     {
@@ -32,6 +36,8 @@ export function Services() {
         containScroll: "trimSnaps",
     })
 
+    const containerRef = useRef<HTMLDivElement>(null)
+
     const scrollPrev = () => emblaApi?.scrollPrev()
     const scrollNext = () => emblaApi?.scrollNext()
 
@@ -40,6 +46,33 @@ export function Services() {
             duration: 800,
             once: true,
         })
+    }, [])
+
+    useEffect(() => {
+        if (!containerRef.current) return
+
+        const cards = containerRef.current.querySelectorAll(".cert-card")
+
+        gsap.fromTo(
+            cards,
+            { autoAlpha: 0, y: 50 },
+            {
+                autoAlpha: 1,
+                y: 0,
+                duration: 1,
+                ease: "power3.out",
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 80%",
+                    // markers: true, // descomente para debug
+                },
+            }
+        )
+
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
     }, [])
 
     return (
@@ -55,13 +88,13 @@ export function Services() {
                     </p>
                 </div>
 
-                <div className="relative max-w-6xl mx-auto">
+                <div className="relative max-w-6xl mx-auto" ref={containerRef}>
                     <div className="overflow-hidden" ref={emblaRef}>
                         <div className="flex gap-4">
                             {certificates.map((cert, index) => (
                                 <div
                                     key={index}
-                                    className="flex-[0_0_calc(100%-1rem)] sm:flex-[0_0_calc(50%-1rem)] lg:flex-[0_0_calc(33%-1rem)] min-w-0 px-1"
+                                    className="cert-card flex-[0_0_calc(100%-1rem)] sm:flex-[0_0_calc(50%-1rem)] lg:flex-[0_0_calc(33%-1rem)] min-w-0 px-1"
                                     data-aos="fade-up"
                                     data-aos-delay={index * 100}
                                 >

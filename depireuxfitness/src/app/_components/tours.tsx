@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import useEmblaCarousel from "embla-carousel-react"
 import {
@@ -6,7 +6,6 @@ import {
     ChevronRight,
     Clock,
     Users,
-    Mountain,
     Handshake,
     Sunrise,
     Moon,
@@ -20,9 +19,13 @@ import mobilidade from "../../../public/cris4.jpg"
 import musculacao from "../../../public/cris6.jpg"
 
 import Image from "next/image"
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import AOS from "aos"
 import "aos/dist/aos.css"
+
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 const services = [
     {
@@ -75,6 +78,8 @@ export function Tours() {
         containScroll: "trimSnaps"
     })
 
+    const sliderRef = useRef<HTMLDivElement>(null)
+
     function scrollPrev() {
         emblaApi?.scrollPrev()
     }
@@ -89,6 +94,30 @@ export function Tours() {
             once: true,
             offset: 100
         })
+    }, [])
+
+    useEffect(() => {
+        if (!sliderRef.current) return
+
+        gsap.fromTo(
+            sliderRef.current,
+            { autoAlpha: 0, scaleX: 0, transformOrigin: "left center" },
+            {
+                autoAlpha: 1,
+                scaleX: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: sliderRef.current,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    scrub: true,
+                }
+            }
+        )
+
+        return () => {
+            ScrollTrigger.getAll().forEach(t => t.kill())
+        }
     }, [])
 
     return (
@@ -107,9 +136,10 @@ export function Tours() {
                 </div>
 
                 <div
-                    className="relative max-w-4xl mx-auto"
+                    className="relative max-w-4xl mx-auto overflow-hidden"
                     data-aos="fade-up"
                     data-aos-delay="100"
+                    ref={sliderRef}
                 >
                     <div className="overflow-hidden" ref={emblaRef}>
                         <div className="flex gap-2">
@@ -127,10 +157,10 @@ export function Tours() {
                                                 alt={item.title}
                                                 fill
                                                 className={`object-cover ${item.title === "Treinos Online e Acompanhamento"
-                                                        ? "object-[center_30%]"
-                                                        : item.title === "Mobilidade, Yoga e Alongamento"
-                                                            ? "object-[center_70%]"
-                                                            : ""
+                                                    ? "object-[center_30%]"
+                                                    : item.title === "Mobilidade, Yoga e Alongamento"
+                                                        ? "object-[center_70%]"
+                                                        : ""
                                                     }`}
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                             />
