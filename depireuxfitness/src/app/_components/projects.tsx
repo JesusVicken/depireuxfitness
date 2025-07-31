@@ -28,7 +28,7 @@ export default function Projects() {
                 data-aos-delay="300"
             >
                 <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center max-w-3xl px-4">
-                    Treinamento pessoal em casa e virtual, Yoga, Flow, Calistenia, Alongamento e Mobilidade e Treinos de Canoa Havaiana
+                    Treinamento pessoal em casa e virtual, Yoga, Flow, Calistenia, Alongamento com Mobilidade e Treinamentos Personalizados
                 </h2>
 
                 {/* Botão para entrar no grupo do WhatsApp */}

@@ -14,16 +14,16 @@ import filhooosLogo from '../../../public/filhooos.jpg'
 import canoMAMALogo from '../../../public/canoMAMAlogo.png'
 
 const partners = [
-  { name: 'CPP Extreme BSB', logo: cppLogo },
+  { name: 'CPP Extreme', logo: cppLogo },
   { name: 'Ascade', logo: ascadeLogo },
   { name: 'Filhooos', logo: filhooosLogo },
   { name: 'CanoMAMA', logo: canoMAMALogo },
 ]
 
 export function Footer() {
-  const whatsappNumber = '61998219177'
+  const whatsappNumber = '556195982423'
   const whatsappMessage =
-    'Olá Cristiano! Gostaria de mais informações sobre suas aulas e experiências na CPP Extreme!'
+    'Olá Cristiano! Gostaria de mais informações sobre suas aulas e experiências!'
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     whatsappMessage
   )}`
@@ -64,8 +64,7 @@ export function Footer() {
           <div data-aos="fade-up-left">
             <h3 className="text-2xl font-semibold mb-3">Cristiano Depireux</h3>
             <p className="mb-4 text-gray-300 leading-relaxed">
-              Promovendo qualidade de vida e inclusão social por meio do esporte,
-              da natureza e de experiências transformadoras.
+              Transformando vidas por meio do treinamento funcional, musculação personalizada e hábitos saudáveis para corpo e mente.
             </p>
             <a
               href={whatsappLink}
@@ -82,7 +81,7 @@ export function Footer() {
           <div data-aos="flip-up">
             <h3 className="text-2xl font-semibold mb-3">Contato</h3>
             <ul className="space-y-2 text-gray-300">
-              <li>📞 (61) 99821-9177</li>
+              <li>📞 +55 61 9598-2423</li>
               <li>📍 Local: ASCAPE - Brasília, DF</li>
               <li>⏰ Horários sob agendamento</li>
             </ul>
@@ -93,7 +92,7 @@ export function Footer() {
             <h3 className="text-2xl font-semibold mb-3">Redes Sociais</h3>
             <div className="flex gap-5 mt-2">
               <a
-                href="https://www.facebook.com/CPPExtreme"
+                href="https://www.facebook.com/cristiano.depireux.7?locale=pt_BR"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-blue-400 transition"
@@ -101,7 +100,7 @@ export function Footer() {
                 <FacebookLogo size={30} />
               </a>
               <a
-                href="https://www.instagram.com/cppextremebsb/"
+                href="https://www.instagram.com/cristianodepireux/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-pink-400 transition"
@@ -109,7 +108,7 @@ export function Footer() {
                 <InstagramLogo size={30} />
               </a>
               <a
-                href="https://www.youtube.com/@cppextreme"
+                href="https://www.youtube.com/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-red-500 transition"
@@ -124,7 +123,7 @@ export function Footer() {
       {/* MAPA */}
       <div className="w-full h-[300px] md:h-[400px] lg:h-[450px] border-t border-white/10">
         <iframe
-          title="Localização CPP Extreme na Ascade"
+          title="Localização Cristiano Depireux na Ascade"
           src="https://www.google.com/maps?q=Ascade+-+Associação+dos+Servidores+da+Câmara+dos+Deputados,+Brasília+-+DF&output=embed"
           width="100%"
           height="100%"
