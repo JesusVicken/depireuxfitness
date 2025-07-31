@@ -10,10 +10,12 @@ import {
 
 import cppLogo from '../../../public/cpp.jpeg'
 import ascadeLogo from '../../../public/logo-ascade.png'
+import sunTech from "../../../public/sun.jpg"
 
 const partners = [
   { name: 'CPP Extreme', logo: cppLogo },
   { name: 'Ascade', logo: ascadeLogo },
+  { name: 'Sun Tech', logo: sunTech },
 ]
 
 export function Footer() {
