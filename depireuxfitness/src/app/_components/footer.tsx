@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import {
   FacebookLogo,
@@ -5,24 +7,23 @@ import {
   YoutubeLogo,
   WhatsappLogo,
 } from '@phosphor-icons/react/dist/ssr'
-import { Anchor } from 'lucide-react'
 
-import ondasupLogo from '../../../public/ondasup.jpg'
+import cppLogo from '../../../public/cpp.jpeg'
 import ascadeLogo from '../../../public/logo-ascade.png'
-import filhooosLogo from '../../../public/filhooos.jpg' // Nova imagem
-import canoMAMALogo from '../../../public/canoMAMAlogo.png' // Nova imagem
+import filhooosLogo from '../../../public/filhooos.jpg'
+import canoMAMALogo from '../../../public/canoMAMAlogo.png'
 
-const brands = [
-  { name: 'Ondasup', logo: ondasupLogo },
+const partners = [
+  { name: 'CPP Extreme BSB', logo: cppLogo },
   { name: 'Ascade', logo: ascadeLogo },
-  { name: 'Filhooos', logo: filhooosLogo }, // Novo parceiro
-  { name: 'CanoMAMA', logo: canoMAMALogo }, // Novo parceiro
+  { name: 'Filhooos', logo: filhooosLogo },
+  { name: 'CanoMAMA', logo: canoMAMALogo },
 ]
 
 export function Footer() {
   const whatsappNumber = '61998219177'
   const whatsappMessage =
-    'Olá, gostaria de mais informações sobre as aulas de remo na CPP Extreme!'
+    'Olá Cristiano! Gostaria de mais informações sobre suas aulas e experiências na CPP Extreme!'
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     whatsappMessage
   )}`
@@ -30,104 +31,101 @@ export function Footer() {
   return (
     <section className="bg-black text-white">
       <div className="container mx-auto px-4 py-16">
-        {/* Parceiros */}
+        {/* PARCEIROS */}
         <div
-          className="border-b border-white/20 pb-8"
+          className="border-b border-white/20 pb-10 mb-10"
           data-aos="fade-up"
-          data-aos-duration="3000"
+          data-aos-duration="1000"
         >
-          <h4 className="text-4xl font-semibold mb-12 text-center flex items-center justify-center gap-3">
-            <Anchor className="w-8 h-8" />
-            Nossos Parceiros
+          <h4 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
+            Parceiros
           </h4>
-
-          <div className="flex flex-wrap justify-center gap-8">
-            {brands.map((item, index) => (
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
+            {partners.map((partner, index) => (
               <div
                 key={index}
-                className="bg-white p-4 rounded-lg flex items-center justify-center"
+                className="bg-white p-3 rounded-xl flex items-center justify-center shadow-md w-[140px] h-[80px] sm:w-[160px] sm:h-[90px]"
               >
                 <Image
-                  src={item.logo}
-                  alt={item.name}
-                  width={150}
-                  height={80}
-                  quality={100}
-                  className="object-contain"
-                  style={{
-                    width: 'auto',
-                    height: 'auto',
-                    maxWidth: '150px',
-                    maxHeight: '80px',
-                  }}
+                  src={partner.logo}
+                  alt={partner.name}
+                  fill={false}
+                  className="object-contain max-w-full max-h-full"
+                  style={{ width: 'auto', height: 'auto' }}
                 />
               </div>
             ))}
           </div>
         </div>
 
-        {/* Informações e Contatos */}
-        <footer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 mt-5">
-          {/* Sobre */}
+        {/* INFORMAÇÕES */}
+        <footer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-sm">
+          {/* SOBRE */}
           <div data-aos="fade-up-left">
-            <h3 className="text-2xl font-semibold mb-2">CPP Extreme Brasília</h3>
-            <p className="mb-4">
-              Promovendo inclusão social através do esporte e aventura.
+            <h3 className="text-2xl font-semibold mb-3">Cristiano Depireux</h3>
+            <p className="mb-4 text-gray-300 leading-relaxed">
+              Promovendo qualidade de vida e inclusão social por meio do esporte,
+              da natureza e de experiências transformadoras.
             </p>
             <a
               href={whatsappLink}
-              className="bg-green-500 px-5 py-2 rounded-md font-semibold flex items-center justify-center w-fit gap-2"
+              className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 px-5 py-2 rounded-md font-semibold text-sm transition"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <WhatsappLogo className="w-5 h-5" />
-              Contato via WhatsApp
+              <WhatsappLogo size={20} weight="fill" />
+              Fale com Cristiano
             </a>
           </div>
 
-          {/* Contatos */}
+          {/* CONTATOS */}
           <div data-aos="flip-up">
-            <h3 className="text-2xl font-semibold mb-2">Contatos</h3>
-            {/* <p>Email: contato@cppextreme.com.br</p> */}
-            <p>Telefone: (61) 99821-9177</p>
-            <p>Ascade - Associação dos Servidores da Câmara dos Deputados 📍 Brasília DF</p>
+            <h3 className="text-2xl font-semibold mb-3">Contato</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li>📞 (61) 99821-9177</li>
+              <li>📍 Local: ASCAPE - Brasília, DF</li>
+              <li>⏰ Horários sob agendamento</li>
+            </ul>
           </div>
 
-          {/* Redes Sociais */}
+          {/* REDES SOCIAIS */}
           <div data-aos="fade-up-right">
-            <h3 className="text-2xl font-semibold mb-2">Redes Sociais</h3>
-            <div className="flex gap-4">
+            <h3 className="text-2xl font-semibold mb-3">Redes Sociais</h3>
+            <div className="flex gap-5 mt-2">
               <a
                 href="https://www.facebook.com/CPPExtreme"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-blue-400 transition"
               >
-                <FacebookLogo className="w-8 h-8" />
+                <FacebookLogo size={30} />
               </a>
               <a
                 href="https://www.instagram.com/cppextremebsb/"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-pink-400 transition"
               >
-                <InstagramLogo className="w-8 h-8" />
+                <InstagramLogo size={30} />
               </a>
               <a
                 href="https://www.youtube.com/@cppextreme"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="hover:text-red-500 transition"
               >
-                <YoutubeLogo className="w-8 h-8" />
+                <YoutubeLogo size={30} />
               </a>
             </div>
           </div>
         </footer>
       </div>
 
-      {/* Google Maps com marcação da Ascade */}
-      <div className="w-full h-[300px] md:h-[400px] lg:h-[450px]">
+      {/* MAPA */}
+      <div className="w-full h-[300px] md:h-[400px] lg:h-[450px] border-t border-white/10">
         <iframe
           title="Localização CPP Extreme na Ascade"
-          src="https://www.google.com/maps?q=Ascade+-+Associa%C3%A7%C3%A3o+dos+Servidores+da+C%C3%A2mara+dos+Deputados,+Bras%C3%ADlia+-+DF&output=embed"
+          src="https://www.google.com/maps?q=Ascade+-+Associação+dos+Servidores+da+Câmara+dos+Deputados,+Brasília+-+DF&output=embed"
           width="100%"
           height="100%"
           loading="lazy"

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: "Cris Personal",
   description: "Cris Personal",
   icons: {
-    icon: "/cris1.jpeg",
+    icon: "/logocris.jpg",
   },
 }
 
