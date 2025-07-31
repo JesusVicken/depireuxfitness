@@ -81,7 +81,7 @@ export function Footer() {
             <ul className="space-y-2 text-gray-300">
               <li>📞 +55 61 9598-2423</li>
               <li>📍 Local: ASCADE - Brasília, DF</li>
-              <li>⏰ Horários sob agendamento</li>
+              <li>⏰ Horários sob agendamento, entre em contato e confira a minha disponibilidade</li>
             </ul>
           </div>
 

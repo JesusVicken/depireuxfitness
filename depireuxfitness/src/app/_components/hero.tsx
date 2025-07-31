@@ -99,7 +99,7 @@ export function Hero() {
             {/* Botão WhatsApp */}
             <div className="mt-4">
               <a
-                href={`https://wa.me/5561998219177?text=${whatsappMessage}`}
+                href={`https://wa.me/556195982423?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-green-600 text-white flex items-center justify-center w-fit gap-2 px-5 py-3 rounded-md hover:bg-green-700 transition"

@@ -63,11 +63,11 @@ export default function Projects() {
                     data-aos-delay="600"
                 >
                     <a
-                        href="https://chat.whatsapp.com/KM0KWPFhgvH2ivlof8QndE"
+                        href="https://wa.me/556195982423?text=Olá%20Cristiano.%20Queria%20saber%20mais%20informações%20sobre%20seu%20trabalho."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-[#25D366] text-white flex items-center justify-center gap-3 px-8 py-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-colors duration-300 text-lg font-medium"
-                        aria-label="Entrar no grupo do WhatsApp"
+                        aria-label="Entrar em contato no WhatsApp"
                     >
                         <WhatsappLogo weight="fill" className="w-7 h-7" />
                         <span>Entrar em contato</span>

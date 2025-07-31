@@ -72,7 +72,7 @@ export function About() {
                         <div className="flex flex-wrap gap-3">
                             <a
                                 target="_blank"
-                                href={`https://wa.me/5561998219177?text=Olá Cristiano! Gostaria de agendar uma aula experimental personalizada.`}
+                                href={`https://wa.me/556195982423?text=Olá Cristiano! Gostaria de agendar uma aula experimental personalizada.`}
                                 className="bg-green-600 text-white flex items-center justify-center w-fit gap-2 px-5 py-3 rounded-md hover:bg-green-700 transition"
                             >
                                 <WhatsappLogo className="w-5 h-5" />
@@ -81,7 +81,7 @@ export function About() {
 
                             <a
                                 target="_blank"
-                                href={`https://wa.me/5561998219177?text=Olá Cristiano! Quero entrar no grupo de treinos ou saber mais sobre seu trabalho.`}
+                                href={`https://wa.me/55556195982423?text=Olá Cristiano! Quero entrar no grupo de treinos ou saber mais sobre seu trabalho.`}
                                 className="flex items-center justify-center w-fit gap-2 px-5 py-3 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition"
                             >
                                 <WhatsappLogo className="w-5 h-5" />

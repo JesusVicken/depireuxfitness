@@ -159,11 +159,11 @@ export function Tours() {
                                             <a
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                href={`https://wa.me/5561998219177?text=${encodeURIComponent(item.linkText)}`}
+                                                href={`https://wa.me/556195982423?text=${encodeURIComponent(item.linkText)}`}
                                                 className="flex items-center gap-2 bg-white text-black px-3 py-1 rounded-lg transition-all text-sm font-medium hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/20"
                                             >
                                                 <WhatsappLogo className="w-4 h-4" />
-                                                Bora Treinar!
+                                                Bora Treinar!?
                                             </a>
                                         </div>
                                     </article>
