@@ -10,14 +10,10 @@ import {
 
 import cppLogo from '../../../public/cpp.jpeg'
 import ascadeLogo from '../../../public/logo-ascade.png'
-import filhooosLogo from '../../../public/filhooos.jpg'
-import canoMAMALogo from '../../../public/canoMAMAlogo.png'
 
 const partners = [
   { name: 'CPP Extreme', logo: cppLogo },
   { name: 'Ascade', logo: ascadeLogo },
-  { name: 'Filhooos', logo: filhooosLogo },
-  { name: 'CanoMAMA', logo: canoMAMALogo },
 ]
 
 export function Footer() {
@@ -38,7 +34,7 @@ export function Footer() {
           data-aos-duration="1000"
         >
           <h4 className="text-3xl sm:text-4xl font-bold mb-8 text-center">
-            Parceiros
+            Meus Parceiros
           </h4>
           <div className="flex flex-wrap justify-center gap-6 sm:gap-10">
             {partners.map((partner, index) => (
@@ -82,7 +78,7 @@ export function Footer() {
             <h3 className="text-2xl font-semibold mb-3">Contato</h3>
             <ul className="space-y-2 text-gray-300">
               <li>📞 +55 61 9598-2423</li>
-              <li>📍 Local: ASCAPE - Brasília, DF</li>
+              <li>📍 Local: ASCADE - Brasília, DF</li>
               <li>⏰ Horários sob agendamento</li>
             </ul>
           </div>
@@ -95,25 +91,25 @@ export function Footer() {
                 href="https://www.facebook.com/cristiano.depireux.7?locale=pt_BR"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-400 transition"
+                className="transition hover:scale-110"
               >
-                <FacebookLogo size={30} />
+                <FacebookLogo size={32} weight="fill" className="text-[#1877F2]" />
               </a>
               <a
                 href="https://www.instagram.com/cristianodepireux/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-pink-400 transition"
+                className="transition hover:scale-110"
               >
-                <InstagramLogo size={30} />
+                <InstagramLogo size={32} weight="fill" className="text-[#E1306C]" />
               </a>
               <a
                 href="https://www.youtube.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-red-500 transition"
+                className="transition hover:scale-110"
               >
-                <YoutubeLogo size={30} />
+                <YoutubeLogo size={32} weight="fill" className="text-[#FF0000]" />
               </a>
             </div>
           </div>
