@@ -82,11 +82,15 @@ export function Hero() {
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="text-green-500" />
-                    Mais performance na canoa e nos esportes
+                    Mais performance nos esportes
                   </li>
                   <li className="flex items-center gap-2">
                     <Check className="text-green-500" />
                     Treinos com propósito e leveza
+                  </li>
+                   <li className="flex items-center gap-2">
+                    <Check className="text-green-500" />
+                    Bem Estar e Saúde
                   </li>
                 </ul>
               </div>
@@ -124,10 +128,10 @@ export function Hero() {
               fill
               quality={100}
               className="object-cover hover:scale-110 duration-300 transition-transform"
+              style={{ objectPosition: 'center 30%' }}
               priority
             />
           </div>
-
         </article>
       </div>
     </section>

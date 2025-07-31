@@ -5,20 +5,19 @@ import {
     ChevronLeft,
     ChevronRight,
     Clock,
+    Users,
+    Mountain,
+    Handshake,
     Sunrise,
     Moon,
-    Route,
-    Handshake,
-    Mountain,
-    Users
+    Dumbbell
 } from "lucide-react"
 import { WhatsappLogo } from "@phosphor-icons/react"
-import canoa3Img from '../../../public/canoa3.jpg'
-import kidsImg from '../../../public/kids.png'
-import noiteImg from '../../../public/noite.jpg'
-import expImg from '../../../public/experimental.jpg'
-import coportaivoImg from '../../../public/corporativo.jpg'
-import experienciaImg from '../../../public/experienciacpp.jpg'
+import treinoPresencial from "../../../public/cris1.jpeg"
+import treinoOnline from "../../../public/cris2.jpeg"
+import canoaHavaiana from "../../../public/123.jpeg"
+import mobilidade from "../../../public/cris4.jpg"
+import musculacao from "../../../public/cris6.jpg"
 
 import Image from "next/image"
 import { useEffect } from "react"
@@ -27,45 +26,46 @@ import "aos/dist/aos.css"
 
 const services = [
     {
-        title: "Remada ao Nascer do Sol",
-        description: "Remada especial ao amanhecer, com paisagem incrível e conexão com a natureza, ideal para iniciantes ou quem busca uma experiência única.",
-        duration: "Sob Consulta",
-        icon: <Sunrise className="w-6 h-6 text-white" />,
-        linkText: "Olá, vi no site sobre a Remada ao Nascer do Sol e gostaria de mais informações.",
-        image: canoa3Img
+        title: "Treinos Presenciais Personalizados",
+        description: "Aulas focadas na sua evolução física com acompanhamento individual. Ideal para quem quer ganhar força, mobilidade e consciência corporal.",
+        duration: "Flexível conforme sua agenda",
+        icon: <Users className="w-6 h-6 text-white" />,
+        linkText: "Olá Cristiano! Gostaria de mais informações sobre os treinos presenciais personalizados.",
+        image: treinoPresencial
     },
     {
-        title: "Expedições e Viajens",
-        description: "Passeios programados em grupo por rotas especiais com paradas em pontos turísticos, ideal para aventura e contato com a natureza.",
-        duration: "Consultar disponibilidade",
-        icon: <Route className="w-6 h-6 text-white" />,
-        linkText: "Olá, vi no site sobre Expedições e gostaria de mais informações.",
-        image: expImg
-    },
-    {
-        title: "Saúde e Bem-estar Empresarial",
-        description: " Através de técnicas de respiração e balanço rítmico da canoa, sua equipe viverá uma experiencia rítmica e sincrónica, promovendo um funcionamento mais coeso e eficiente.",
-        duration: "Sob consulta",
+        title: "Treinos Online e Acompanhamento",
+        description: "Treinos via vídeo com planos ajustados ao seu ritmo, para você evoluir de qualquer lugar com segurança e orientação profissional.",
+        duration: "A qualquer hora, no seu ritmo",
         icon: <Handshake className="w-6 h-6 text-white" />,
-        linkText: "Olá, vi no site sobre Eventos Corporativos e gostaria de mais informações.",
-        image: coportaivoImg
+        linkText: "Olá Cristiano! Quero saber como funcionam os treinos online e o acompanhamento.",
+        image: treinoOnline
     },
     {
-        title: "Remada da Lua Cheia",
-        description: "Experiência única de remar sob a lua cheia e as estrelas, com todo suporte e segurança. ideal para quem busca uma remada ao luar",
-        duration: "Em dias de luas cheia",
+        title: "Treino para Canoa Havaiana",
+        description: "Fortaleça seu corpo e melhore sua performance para remar melhor na canoa, com exercícios específicos de mobilidade e força.",
+        duration: "Sessões semanais ou conforme necessidade",
+        icon: <Sunrise className="w-6 h-6 text-white" />,
+        linkText: "Olá Cristiano! Tenho interesse nos treinos para canoa havaiana, pode me informar mais?",
+        image: canoaHavaiana
+    },
+    {
+        title: "Mobilidade, Yoga e Alongamento",
+        description: "Práticas que ajudam a liberar tensões, aumentar a flexibilidade e promover bem-estar físico e mental, com foco na qualidade de vida.",
+        duration: "Sessões individuais ou em grupo",
         icon: <Moon className="w-6 h-6 text-white" />,
-        linkText: "Olá, vi no site sobre a remada da lua cheia e gostaria de mais informações.",
-        image: noiteImg
+        linkText: "Olá Cristiano! Quero saber mais sobre mobilidade, yoga e alongamento.",
+        image: mobilidade
     },
     {
-        title: "Experiências EXTREME",
-        description: "Experiências de aventura com atividades como canionismo, trilhas, rapel e outras emocionantes atividades que estamos preparamos para você.",
-        duration: "EM BREVE AS PROGRAMAÇÕES",
-        icon: <Mountain className="w-6 h-6 text-white" />,
-        linkText: "Olá, vi no site sobre a remada da lua cheia e gostaria de mais informações.",
-        image: experienciaImg
+        title: "Musculação e Condicionamento Físico",
+        description: "Treinos focados em força, resistência e desempenho físico, com acompanhamento para melhorar sua performance e saúde geral.",
+        duration: "Programação personalizada",
+        icon: <Dumbbell className="w-6 h-6 text-white" />,
+        linkText: "Olá Cristiano! Quero participar das atividades de musculação e condicionamento físico.",
+        image: musculacao
     }
+
 ]
 
 export function Tours() {
@@ -99,10 +99,10 @@ export function Tours() {
                     data-aos="fade-up"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        PASSEIOS E EXPERIÊNCIAS
+                        Você está procurando o treino perfeito para você?
                     </h2>
                     <p className="text-zinc-300 max-w-2xl mx-auto">
-                        Confira nossos horários disponíveis e venha viver a experiência da canoa havaiana no Lago Paranoá!
+                        Descubra nossa gama completa de serviços de saúde e bem-estar em domicílio e no local.
                     </p>
                 </div>
 
@@ -151,17 +151,15 @@ export function Tours() {
                                                 <span>{item.duration}</span>
                                             </div>
 
-                                            {item.title !== "Experiências EXTREME" && (
-                                                <a
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    href={`https://wa.me/5561998219177?text=${encodeURIComponent(item.linkText)}`}
-                                                    className="flex items-center gap-2 bg-white text-black px-3 py-1 rounded-lg transition-all text-sm font-medium hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/20"
-                                                >
-                                                    <WhatsappLogo className="w-4 h-4" />
-                                                    Bora Remar!
-                                                </a>
-                                            )}
+                                            <a
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                href={`https://wa.me/5561998219177?text=${encodeURIComponent(item.linkText)}`}
+                                                className="flex items-center gap-2 bg-white text-black px-3 py-1 rounded-lg transition-all text-sm font-medium hover:bg-zinc-200 hover:shadow-lg hover:shadow-white/20"
+                                            >
+                                                <WhatsappLogo className="w-4 h-4" />
+                                                Bora Treinar!
+                                            </a>
                                         </div>
                                     </article>
                                 </div>
