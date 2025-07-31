@@ -4,7 +4,11 @@ import { Parallax } from 'react-scroll-parallax'
 import Image from 'next/image'
 import { WhatsappLogo } from '@phosphor-icons/react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger)
 
 const phrases = [
     "Movimente-se Comigo",
@@ -15,6 +19,7 @@ const phrases = [
 
 export default function Projects() {
     const [index, setIndex] = useState(0)
+    const phraseRef = useRef<HTMLDivElement>(null)
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -22,6 +27,39 @@ export default function Projects() {
         }, 4000) // Troca a cada 4 segundos
 
         return () => clearInterval(interval)
+    }, [])
+
+    useEffect(() => {
+        if (!phraseRef.current) return
+
+        // Garantir opacidade inicial total e sem filtro
+        gsap.set(phraseRef.current, {
+            autoAlpha: 1,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            filter: 'brightness(1)',
+        })
+
+        const ctx = gsap.context(() => {
+            gsap.to(phraseRef.current, {
+                y: -80,
+                autoAlpha: 0,
+                scale: 0.9,
+                rotate: 3,
+                filter: 'brightness(0.5)',
+                ease: 'power1.out',
+                scrollTrigger: {
+                    trigger: phraseRef.current,
+                    start: 'top center',
+                    end: 'bottom top',
+                    scrub: true,
+                    // markers: true, // descomente para debug visual
+                },
+            })
+        }, phraseRef)
+
+        return () => ctx.revert()
     }, [])
 
     return (
@@ -42,19 +80,20 @@ export default function Projects() {
             </Parallax>
 
             <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-10 px-4 space-y-8">
-                <AnimatePresence mode="wait">
-                    <motion.h2
-                        key={index}
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -100 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-white text-5xl md:text-6xl lg:text-7xl font-extrabold text-center max-w-4xl px-4 leading-tight"
-                    >
-                        {phrases[index]}
-                    </motion.h2>
-
-                </AnimatePresence>
+                <div ref={phraseRef} className="w-full max-w-4xl">
+                    <AnimatePresence mode="wait">
+                        <motion.h2
+                            key={index}
+                            initial={{ opacity: 0, x: 100 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -100 }}
+                            transition={{ duration: 0.6 }}
+                            className="text-white text-5xl md:text-6xl lg:text-7xl font-extrabold text-center px-4 leading-tight"
+                        >
+                            {phrases[index]}
+                        </motion.h2>
+                    </AnimatePresence>
+                </div>
 
                 {/* Botão WhatsApp */}
                 <div
