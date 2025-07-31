@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Cris Personal",
-  description: "Cris Personal",
+  title: "Depireux Personal",
+  description: "Movimente-se Comigo!",
   icons: {
     icon: "/logocris.jpg",
   },

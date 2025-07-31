@@ -3,8 +3,27 @@
 import { Parallax } from 'react-scroll-parallax'
 import Image from 'next/image'
 import { WhatsappLogo } from '@phosphor-icons/react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from 'react'
+
+const phrases = [
+    "Movimente-se Comigo",
+    "Fortaleça seu corpo e sua mente",
+    "Transforme sua rotina com movimento",
+    "Cuide do seu bem-estar todos os dias",
+]
 
 export default function Projects() {
+    const [index, setIndex] = useState(0)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % phrases.length)
+        }, 4000) // Troca a cada 4 segundos
+
+        return () => clearInterval(interval)
+    }, [])
+
     return (
         <div
             className="relative h-[700px] md:h-[800px] lg:h-[900px] overflow-hidden"
@@ -22,16 +41,22 @@ export default function Projects() {
                 </div>
             </Parallax>
 
-            <div
-                className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-10 px-4 space-y-8"
-                data-aos="fade-up"
-                data-aos-delay="300"
-            >
-                <h2 className="text-white text-3xl md:text-4xl lg:text-5xl font-bold text-center max-w-3xl px-4">
-                    Treinamento pessoal em casa e virtual, Yoga, Flow, Calistenia, Alongamento com Mobilidade e Treinamentos Personalizados
-                </h2>
+            <div className="absolute inset-0 bg-black/40 flex flex-col items-center justify-center z-10 px-4 space-y-8">
+                <AnimatePresence mode="wait">
+                    <motion.h2
+                        key={index}
+                        initial={{ opacity: 0, x: 100 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: -100 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-white text-5xl md:text-6xl lg:text-7xl font-extrabold text-center max-w-4xl px-4 leading-tight"
+                    >
+                        {phrases[index]}
+                    </motion.h2>
 
-                {/* Botão para entrar no grupo do WhatsApp */}
+                </AnimatePresence>
+
+                {/* Botão WhatsApp */}
                 <div
                     className="mt-2 animate-bounce hover:animate-none transition-all duration-300"
                     data-aos="zoom-in"
