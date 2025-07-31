@@ -126,7 +126,12 @@ export function Tours() {
                                                 src={item.image}
                                                 alt={item.title}
                                                 fill
-                                                className="object-cover"
+                                                className={`object-cover ${item.title === "Treinos Online e Acompanhamento"
+                                                        ? "object-[center_30%]"
+                                                        : item.title === "Mobilidade, Yoga e Alongamento"
+                                                            ? "object-[center_70%]"
+                                                            : ""
+                                                    }`}
                                                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                             />
                                         </div>
