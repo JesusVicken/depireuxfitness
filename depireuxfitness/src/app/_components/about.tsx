@@ -44,7 +44,7 @@ export function About() {
                         </p>
 
                         <p className="text-gray-700 text-base leading-relaxed">
-                            Com mais de 10 anos de experiência em modalidades como musculação, calistenia, yoga, mobilidade e canoa havaiana, crio treinos personalizados que combinam técnicas modernas e tradicionais para você evoluir no seu ritmo.
+                            Com mais de 13 anos de experiência em modalidades como musculação, calistenia, yoga, mobilidade e canoa havaiana. Sempre me especializei no treinamento de força e de movimento, gosto de misturar o holístico com a ciência mas sempre usando das evidência científicas para um resultado maior e melhor para os meus alunos.
                         </p>
 
                         <p className="text-gray-700 text-base leading-relaxed">
