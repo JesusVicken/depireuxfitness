@@ -163,8 +163,8 @@ export function Footer() {
             <h3 className="text-2xl font-semibold mb-3">Contato</h3>
             <ul className="space-y-2 text-gray-300">
               <li>📞 +55 61 9598-2423</li>
-              <li>📍 Local: ASCADE - Brasília, DF</li>
-              <li>⏰ Horários sob agendamento, entre em contato e confira a minha disponibilidade</li>
+              <li>📍 Local: Guará II QE 21 conjunto F casa 01 - Guará, Brasília - DF</li>
+              <li>⏰ Horários sob agendamento, entre em contato e confira a disponibilidade</li>
             </ul>
           </div>
 

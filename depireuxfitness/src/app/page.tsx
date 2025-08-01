@@ -9,6 +9,8 @@ import CheckVaa from "./_components/checkVaa"
 import { ParallaxWrapper } from "./_components/ParallaxWrapper"
 import FooterDev from "./_components/footer-dev"
 import WhatsappWrapper from "./_components/whatsapp-wrapper"
+import AppMobile from "./_components/appMobile"
+
 
 export default function Home() {
   return (
@@ -22,6 +24,7 @@ export default function Home() {
         <Tours />
         <Services />
         <CheckVaa />
+        <AppMobile />
         <Footer />
         <FooterDev />
       </WhatsappWrapper>
