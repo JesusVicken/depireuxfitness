@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: "Depireux Personal",
   description: "Movimente-se Comigo!",
   icons: {
-    icon: "/logocris.jpg",
+    icon: "/logo2.png",
   },
 }
 
