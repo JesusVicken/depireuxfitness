@@ -1,210 +1,172 @@
+'use client'
 
-"use client"
+import { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import Image from 'next/image'
 
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { Checkbox } from "@/components/ui/checkbox"
-import {
-    ShowerHead,
-    ClockIcon,
-    InfoIcon,
-    MapPinIcon,
-    PhoneCallIcon,
-    CheckCircle2,
-} from "lucide-react"
-import { useState, useEffect } from "react"
-import { motion } from "framer-motion"
-import Confetti from 'react-confetti'
-import { useWindowSize } from 'react-use'
-
-const checklistItems = [
-    "Deixar o nome na portaria ao chegar",
-    "Ir para a beira lago (BASE CPP - quase de frente às piscinas)",
-    "Guardar chinelas/mochilas na base/sala",
-    "Leve garrafinha de água",
-    "Roupa confortável que possa molhar",
-    "Roupa extra para trocar na volta",
-    "Roupa de banho (opcional para pular no lago)",
-    "Lembrar que a remada é feita descalço ou com sapatilha híbrida",
-    "Escolher remo do tamanho ideal para você ",
-    "Vestir colete",
-    "Partiu remada! 🛶"
-]
+gsap.registerPlugin(ScrollTrigger)
 
 export default function CheckVaa() {
-    const [checkedItems, setCheckedItems] = useState(Array(checklistItems.length).fill(false))
-    const [showConfetti, setShowConfetti] = useState(false)
-    const { width, height } = useWindowSize()
-
-    const handleCheck = (index: number) => {
-        const updated = [...checkedItems]
-        updated[index] = !updated[index]
-        setCheckedItems(updated)
-    }
-
-    const allChecked = checkedItems.every(Boolean)
+    const produtosRef = useRef(null)
 
     useEffect(() => {
-        if (allChecked) {
-            setShowConfetti(true)
-            const timer = setTimeout(() => {
-                setShowConfetti(false)
-            }, 5000)
-            return () => clearTimeout(timer)
+        if (produtosRef.current) {
+            gsap.fromTo(
+                produtosRef.current,
+                { opacity: 0, y: 100 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    scrollTrigger: {
+                        trigger: produtosRef.current,
+                        start: 'top 80%',
+                        toggleActions: 'play none none none',
+                    },
+                }
+            )
         }
-    }, [allChecked])
+
+        const cards = gsap.utils.toArray('.produto-card') as HTMLElement[]
+
+        cards.forEach((card) => {
+            const content = card.querySelector('.produto-info') as HTMLElement
+            gsap.set(content, { opacity: 0, y: 20 })
+
+            card.addEventListener('mouseenter', () => {
+                gsap.to(content, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.4,
+                    ease: 'power2.out',
+                })
+            })
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(content, {
+                    opacity: 0,
+                    y: 20,
+                    duration: 0.4,
+                    ease: 'power2.out',
+                })
+            })
+        })
+    }, [])
 
     return (
-        <section className="bg-white py-12 px-4 md:px-8 relative overflow-hidden">
-            {showConfetti && (
-                <Confetti
-                    width={width}
-                    height={height}
-                    recycle={false}
-                    numberOfPieces={500}
-                    gravity={0.2}
+        <section className="bg-white text-black py-20 px-6 md:px-20">
+            <div ref={produtosRef} className="max-w-6xl mx-auto text-center">
+                <Image
+                    src="/sun.jpg"
+                    alt="Logo Suntech"
+                    width={160}
+                    height={100}
+                    className="mx-auto mb-6"
+                    data-aos="fade-down"
                 />
-            )}
-            <div className="max-w-3xl mx-auto">
-                <Card className="shadow-lg border-zinc-200">
-                    <CardHeader>
-                        <CardTitle className="text-2xl md:text-3xl font-bold text-zinc-900">
-                            Primeira Aula de Canoa Havaiana 🌊
-                        </CardTitle>
-                        <CardDescription className="text-zinc-600">
-                            Tudo que você precisa saber para remar com a gente!
-                        </CardDescription>
-                    </CardHeader>
 
-                    <CardContent className="space-y-6">
-                        <InfoRow
-                            icon={<MapPinIcon className="w-5 h-5 mt-1 text-blue-600" />}
-                            title="Estacionamento:"
-                            content="O clube conta com estacionamento privado interno. Pode estacionar com tranquilidade e segurança!"
-                        />
-                        <InfoRow
-                            icon={<ClockIcon className="w-5 h-5 mt-1 text-green-600" />}
-                            title="Horário:"
-                            content="Chegar com 10 minutos de antecedência. Aula com ~1h de duração."
-                        />
-                        <InfoRow
-                            icon={<MapPinIcon className="w-5 h-5 mt-1 text-red-600" />}
-                            title="Local:"
-                            content="ASCADE. Deixe o nome na portaria e vá até a base da CPP EXTREME (quase em frente às piscinas)."
-                        />
-                        <InfoRow
-                            icon={<ShowerHead className="w-5 h-5 mt-1 text-indigo-600" />}
-                            title="Banheiro com chuveiro:"
-                            content="Temos um ótimo banheiro com chuveiro para você tomar banho após a remada e seguir direto para o trabalho!"
-                        />
+                <h2
+                    className="text-4xl font-bold text-yellow-500 mb-4"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
+                    Produtos à Venda
+                </h2>
 
-                        <div className="flex items-start gap-4">
-                            <InfoIcon className="w-5 h-5 mt-1 text-yellow-600" />
-                            <div>
-                                <h4 className="text-zinc-800 font-semibold">Checklist para a remada:</h4>
-                                <ul className="space-y-2 mt-2">
-                                    {checklistItems.map((item, index) => (
-                                        <li key={index} className="flex items-center gap-2">
-                                            <Checkbox
-                                                checked={checkedItems[index]}
-                                                onCheckedChange={() => handleCheck(index)}
-                                            />
-                                            <motion.span
-                                                className={`text-sm ${checkedItems[index]
-                                                    ? "line-through text-green-600"
-                                                    : "text-zinc-700"
-                                                    }`}
-                                                initial={{ opacity: 0 }}
-                                                animate={{ opacity: 1 }}
-                                            >
-                                                {item}
-                                            </motion.span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
+                <p
+                    className="text-lg md:text-xl text-neutral-700 mb-12 max-w-3xl mx-auto"
+                    data-aos="fade-up"
+                    data-aos-delay="200"
+                >
+                    Alta proteção, toque seco e resistência à água. Escolha a sua versão ideal e leve proteção de verdade para seus treinos!
+                </p>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    {/* Produto 75g */}
+                    <div
+                        className="produto-card relative bg-yellow-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer"
+                        data-aos="zoom-in-up"
+                        data-aos-delay="100"
+                    >
+                        <h3 className="text-xl font-bold text-yellow-600 text-center mb-4">
+                            Protetor Solar FPS 50 – 75g
+                        </h3>
+                        <div className="flex gap-4 mb-4 justify-center">
+                            <Image
+                                src="/suntech1.webp"
+                                alt="Protetor 75g Frente"
+                                width={160}
+                                height={220}
+                                className="rounded-md border"
+                            />
+                            <Image
+                                src="/suntech2.webp"
+                                alt="Protetor 75g Verso"
+                                width={160}
+                                height={220}
+                                className="rounded-md border"
+                            />
                         </div>
 
-                        <div className="flex items-start gap-4">
-                            <PhoneCallIcon className="w-5 h-5 mt-1 text-purple-600" />
-                            <div>
-                                <h4 className="text-zinc-800 font-semibold">Contato:</h4>
-                                <p className="text-sm text-zinc-600">
-                                    Dúvidas? Fale conosco pelo WhatsApp!
-                                </p>
-                                <Button variant="default" className="mt-2" asChild>
-                                    <a
-                                        href="https://wa.me/5561998219177?text=Olá, gostaria de agendar minha primeira aula de canoa havaiana!"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Falar no WhatsApp
-                                    </a>
-                                </Button>
-                            </div>
-                        </div>
-
-                        <div className="text-center mt-6">
-                            <Badge variant="outline" className="text-sm px-3 py-1 text-zinc-700 border-zinc-300">
-                                Vagas limitadas - Garanta sua remada!
-                            </Badge>
-                        </div>
-
-                        <div className="text-center">
-                            <Button
-                                className="mt-4"
-                                disabled={!allChecked}
-                                variant={allChecked ? "default" : "outline"}
+                        {/* Informações escondidas com hover */}
+                        <div className="produto-info absolute inset-0 bg-white/95 flex flex-col items-center justify-center text-center px-4 rounded-2xl">
+                            <p className="text-sm text-zinc-700 mb-4">
+                                Ideal para o dia a dia. Embalagem compacta, perfeita para levar na bolsa ou mochila.
+                            </p>
+                            <a
+                                href="https://wa.me/5561998219177?text=Olá! Gostaria de comprar o protetor solar Suntech 75g."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-yellow-500 text-black px-5 py-2 rounded-md font-semibold hover:bg-yellow-400 transition"
                             >
-                                {allChecked ? (
-                                    <motion.span
-                                        className="flex items-center gap-2"
-                                        initial={{ scale: 0.9 }}
-                                        animate={{ scale: 1 }}
-                                        transition={{
-                                            type: "spring",
-                                            stiffness: 500,
-                                            damping: 15
-                                        }}
-                                    >
-                                        <CheckCircle2 className="w-4 h-4" />
-                                        Check-in Confirmado!
-                                    </motion.span>
-                                ) : (
-                                    "Marque todos os itens para confirmar"
-                                )}
-                            </Button>
+                                Comprar via WhatsApp
+                            </a>
                         </div>
-                    </CardContent>
-                </Card>
+                    </div>
+
+                    {/* Produto 180g */}
+                    <div
+                        className="produto-card relative bg-yellow-100 p-6 rounded-2xl shadow-lg hover:shadow-xl transition duration-300 overflow-hidden cursor-pointer"
+                        data-aos="zoom-in-up"
+                        data-aos-delay="200"
+                    >
+                        <h3 className="text-xl font-bold text-yellow-600 text-center mb-4">
+                            Protetor Solar FPS 50 – 180g
+                        </h3>
+                        <div className="flex gap-4 mb-4 justify-center">
+                            <Image
+                                src="/suntech3.webp"
+                                alt="Protetor 180g Frente"
+                                width={160}
+                                height={220}
+                                className="rounded-md border"
+                            />
+                            <Image
+                                src="/suntech4.webp"
+                                alt="Protetor 180g Verso"
+                                width={160}
+                                height={220}
+                                className="rounded-md border"
+                            />
+                        </div>
+
+                        <div className="produto-info absolute inset-0 bg-white/95 flex flex-col items-center justify-center text-center px-4 rounded-2xl">
+                            <p className="text-sm text-zinc-700 mb-4">
+                                Para quem usa com frequência. Mais produto, mais economia, mais proteção.
+                            </p>
+                            <a
+                                href="https://wa.me/5561995982423?text=Olá! Quero comprar o protetor solar Suntech 180g."
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-yellow-500 text-black px-5 py-2 rounded-md font-semibold hover:bg-yellow-400 transition"
+                            >
+                                Comprar via WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
-    )
-}
-
-function InfoRow({
-    icon,
-    title,
-    content,
-}: {
-    icon: React.ReactNode
-    title: string
-    content: string
-}) {
-    return (
-        <div className="flex items-start gap-4">
-            {icon}
-            <div>
-                <h4 className="text-zinc-800 font-semibold">{title}</h4>
-                <p className="text-sm text-zinc-600">{content}</p>
-            </div>
-        </div>
     )
 }

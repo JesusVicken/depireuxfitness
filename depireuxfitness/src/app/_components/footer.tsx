@@ -6,6 +6,7 @@ import {
   InstagramLogo,
   YoutubeLogo,
   WhatsappLogo,
+  LinkedinLogo,
 } from '@phosphor-icons/react/dist/ssr'
 import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
@@ -14,6 +15,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import cppLogo from '../../../public/cpp.jpeg'
 import ascadeLogo from '../../../public/logo-ascade.png'
 import sunTech from '../../../public/sun.jpg'
+import newHit from '../../../public/newhit.jpg'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,6 +23,7 @@ const partners = [
   { name: 'CPP Extreme', logo: cppLogo },
   { name: 'Ascade', logo: ascadeLogo },
   { name: 'Sun Tech', logo: sunTech },
+  { name: 'New Hit', logo: newHit },
 ]
 
 export function Footer() {
@@ -193,8 +196,17 @@ export function Footer() {
               >
                 <YoutubeLogo size={32} weight="fill" className="text-[#FF0000]" />
               </a>
+              <a
+                href="https://www.linkedin.com/in/cristiano-depireux-82380b372/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition hover:scale-110"
+              >
+                <LinkedinLogo size={32} weight="fill" className="text-[#0077B5]" />
+              </a>
             </div>
           </div>
+
         </footer>
       </div>
 

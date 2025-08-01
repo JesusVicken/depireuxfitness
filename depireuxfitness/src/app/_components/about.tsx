@@ -1,6 +1,6 @@
 import Image from "next/image"
 import cpp1 from "../../../public/bg-cris.jpeg"
-import cpp2 from "../../../public/cpp2.jpeg"
+import cpp2 from "../../../public/logo2.png"
 import { Check } from "lucide-react"
 import { WhatsappLogo } from "@phosphor-icons/react/dist/ssr"
 
@@ -14,7 +14,7 @@ export function About() {
                         <div className="relative w-full h-[400px] rounded-3xl overflow-hidden shadow-lg">
                             <Image
                                 src={cpp1}
-                                alt="Cristiano treinando no Lago"
+                                alt="Cristiano treinando"
                                 fill
                                 quality={100}
                                 className="object-cover hover:scale-105 transition-transform duration-500"
@@ -22,16 +22,17 @@ export function About() {
                             />
                         </div>
 
-                        <div className="absolute w-40 h-40 right-4 -bottom-8 rounded-2xl overflow-hidden shadow-xl bg-white">
+                        <div className="absolute w-40 h-40 right-4 -bottom-8 rounded-2xl overflow-hidden shadow-xl bg-white hidden md:block">
                             <Image
                                 src={cpp2}
-                                alt="Cristiano na canoa havaiana"
+                                alt="Cristiano logo"
                                 fill
                                 quality={100}
                                 className="object-cover"
                                 priority
                             />
                         </div>
+
                     </div>
 
                     {/* Bloco de Texto */}
