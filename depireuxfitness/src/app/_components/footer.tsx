@@ -143,7 +143,7 @@ export function Footer() {
         >
           {/* SOBRE */}
           <div className="footer-section opacity-0" data-animate-section>
-            <h3 className="text-2xl font-semibold mb-3">Cristiano Depireux</h3>
+            <h3 className="text-2xl font-semibold mb-3">Personal Trainer Cristiano Depireux</h3>
             <p className="mb-4 text-gray-300 leading-relaxed">
               Transformando vidas por meio do treinamento funcional, musculação personalizada e hábitos saudáveis para corpo e mente.
             </p>
