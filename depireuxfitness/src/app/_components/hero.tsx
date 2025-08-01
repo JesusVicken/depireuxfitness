@@ -92,7 +92,7 @@ export function Hero() {
                     <Check className="text-green-500" />
                     Planilhas de treinos
                   </li>
-                   <li className="flex items-center gap-2">
+                  <li className="flex items-center gap-2">
                     <Check className="text-green-500" />
                     Bem Estar e Saúde
                   </li>
@@ -113,12 +113,12 @@ export function Hero() {
               </a>
             </div>
 
-            {/* Aula experimental */}
+            {/* Aula experimental
             <div className="mt-2">
               <p className="text-sm text-gray-200">
-                Agende sua <b className="bg-white text-black px-2 py-1 rounded-md">aula experimental</b>
+                Marque uma conversa <b className="bg-white text-black px-2 py-1 rounded-md">comigo</b>
               </p>
-            </div>
+            </div> */}
           </div>
 
           {/* Imagem lateral para desktop */}

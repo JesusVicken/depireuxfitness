@@ -67,7 +67,7 @@ export function About() {
                         </ul>
 
                         <p className="text-gray-700">
-                            Quer saber mais ou agendar sua <strong>aula experimental gratuita</strong>? Me chama no WhatsApp que vamos juntos nessa jornada!
+                            Quer saber mais ou agendar sua <strong>aula</strong>? Me chama no WhatsApp que vou te ajudar!
                         </p>
 
                         <div className="flex flex-wrap gap-3">
