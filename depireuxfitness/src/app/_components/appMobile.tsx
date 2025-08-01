@@ -36,9 +36,9 @@ export default function AppMobile() {
     }, [])
 
     return (
-        <section className="w-full bg-white px-4 sm:px-6 lg:px-8 py-8 md:py-14">
+        <section className="w-full bg-white px-4 sm:px-6 lg:px-8 py-6 md:py-10">
             <div className="max-w-7xl mx-auto">
-                <div className="flex flex-col-reverse lg:flex-row items-center gap-10 lg:gap-16">
+                <div className="flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-16">
 
                     {/* Conteúdo */}
                     <div
@@ -94,7 +94,7 @@ export default function AppMobile() {
                         ref={imageRef}
                         className="w-full max-w-sm sm:max-w-md lg:max-w-lg xl:max-w-xl flex justify-center"
                     >
-                        <div className="relative w-full aspect-[9/16] max-h-[560px]">
+                        <div className="relative w-full h-[380px] sm:h-[440px] md:h-[480px] lg:h-[500px] xl:h-[520px]">
                             <Image
                                 src="/celulart.png"
                                 alt="App no celular"
