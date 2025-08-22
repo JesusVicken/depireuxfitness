@@ -21,9 +21,10 @@ gsap.registerPlugin(ScrollTrigger)
 
 const partners = [
   { name: 'CPP Extreme', logo: cppLogo },
+  { name: 'New Hit', logo: newHit },
   { name: 'Ascade', logo: ascadeLogo },
   { name: 'Sun Tech', logo: sunTech },
-  { name: 'New Hit', logo: newHit },
+  
 ]
 
 export function Footer() {
