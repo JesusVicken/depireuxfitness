@@ -10,7 +10,7 @@ import { ParallaxWrapper } from "./_components/ParallaxWrapper"
 import FooterDev from "./_components/footer-dev"
 import WhatsappWrapper from "./_components/whatsapp-wrapper"
 import AppMobile from "./_components/appMobile"
-
+import { Gallery } from "./_components/gallery"
 
 export default function Home() {
   return (
@@ -20,6 +20,7 @@ export default function Home() {
       </ParallaxWrapper>
       <Hero />
       <About />
+      <Gallery />
       <WhatsappWrapper>
         <Tours />
         <Services />
