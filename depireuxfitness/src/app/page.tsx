@@ -18,8 +18,8 @@ export default function Home() {
       <ParallaxWrapper>
         <Projects />
       </ParallaxWrapper>
-      <Hero />
       <About />
+      <Hero />
       <Gallery />
       <WhatsappWrapper>
         <Tours />
