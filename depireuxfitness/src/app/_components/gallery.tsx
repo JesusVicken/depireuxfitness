@@ -1,3 +1,4 @@
+// app/_components/gallery.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -5,6 +6,7 @@ import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+// Importando as imagens diretamente
 import img1 from '../../../public/img1.jpeg';
 import img2 from '../../../public/img2.jpeg';
 import img3 from '../../../public/img3.jpeg';
@@ -117,22 +119,28 @@ export function Gallery() {
                         return (
                             <motion.div
                                 key={index}
-                                className="relative aspect-square cursor-pointer overflow-hidden rounded-lg shadow-md"
+                                className="relative aspect-square cursor-pointer overflow-hidden rounded-lg shadow-md bg-black"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                                 onClick={() => openModal(index)}
                             >
-                                <div className={`absolute inset-0 bg-gray-200 animate-pulse rounded-lg ${loadedImages[index] ? 'hidden' : 'block'}`}></div>
-                                <Image
-                                    src={image}
-                                    alt={`Foto de treino ${index + 1}`}
-                                    className="object-cover transition-opacity duration-300"
-                                    style={{ opacity: loadedImages[index] ? 1 : 0 }}
-                                    onLoad={() => handleImageLoad(index)}
-                                    onError={() => handleImageError(index)}
-                                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                                />
+                                <div className={`absolute inset-0 bg-gray-800 animate-pulse rounded-lg ${loadedImages[index] ? 'hidden' : 'block'}`}></div>
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={image}
+                                        alt={`Foto de treino ${index + 1}`}
+                                        className="object-cover transition-opacity duration-300"
+                                        style={{
+                                            opacity: loadedImages[index] ? 1 : 0,
+                                            width: '100%',
+                                            height: '100%'
+                                        }}
+                                        onLoad={() => handleImageLoad(index)}
+                                        onError={() => handleImageError(index)}
+                                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                    />
+                                </div>
                             </motion.div>
                         );
                     })}
@@ -177,18 +185,24 @@ export function Gallery() {
                                         animate={{ opacity: 1 }}
                                         exit={{ opacity: 0 }}
                                         transition={{ duration: 0.3 }}
-                                        className="relative w-full h-full"
+                                        className="relative w-full h-full bg-black"
                                     >
                                         <div className="absolute inset-0 bg-gray-800 animate-pulse rounded-lg" style={{ display: loadedImages[currentIndex] ? 'none' : 'block' }}></div>
-                                        <Image
-                                            src={validImages[currentIndex]}
-                                            alt={`Foto de treino ${currentIndex + 1}`}
-                                            className="object-contain transition-opacity duration-300"
-                                            style={{ opacity: loadedImages[currentIndex] ? 1 : 0 }}
-                                            onLoad={() => handleImageLoad(currentIndex)}
-                                            sizes="(max-width: 768px) 100vw, 80vw"
-                                            priority
-                                        />
+                                        <div className="relative w-full h-full flex items-center justify-center">
+                                            <Image
+                                                src={validImages[currentIndex]}
+                                                alt={`Foto de treino ${currentIndex + 1}`}
+                                                className="object-contain transition-opacity duration-300"
+                                                style={{
+                                                    opacity: loadedImages[currentIndex] ? 1 : 0,
+                                                    maxWidth: '100%',
+                                                    maxHeight: '100%'
+                                                }}
+                                                onLoad={() => handleImageLoad(currentIndex)}
+                                                sizes="(max-width: 768px) 100vw, 80vw"
+                                                priority
+                                            />
+                                        </div>
                                     </motion.div>
                                 </div>
 
