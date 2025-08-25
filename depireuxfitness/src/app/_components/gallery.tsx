@@ -1,4 +1,3 @@
-// app/_components/gallery.tsx
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -6,20 +5,35 @@ import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import img1 from '../../../public/img1.jpeg';
+import img2 from '../../../public/img2.jpeg';
+import img3 from '../../../public/img3.jpeg';
+import img4 from '../../../public/img4.jpeg';
+import img5 from '../../../public/img5.jpeg';
+import img6 from '../../../public/img6.jpeg';
+import img7 from '../../../public/img7.jpeg';
+import img8 from '../../../public/img8.jpeg';
+import img9 from '../../../public/img9.jpeg';
+import img10 from '../../../public/img10.jpeg';
+import img11 from '../../../public/img11.jpeg';
+import img12 from '../../../public/img12.jpeg';
+
+const images = [
+    img1, img2, img3, img4, img5, img6,
+    img7, img8, img9, img10, img11, img12
+];
+
 export function Gallery() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [loadedImages, setLoadedImages] = useState<boolean[]>([]);
     const [imageErrors, setImageErrors] = useState<boolean[]>([]);
 
-    // Gera a lista de imagens (img1.jpeg até img11.jpeg)
-    const images = Array.from({ length: 12 }, (_, i) => `/img${i + 1}.jpeg`);
-
     // Inicializa os arrays de estado
     useEffect(() => {
         setLoadedImages(new Array(images.length).fill(false));
         setImageErrors(new Array(images.length).fill(false));
-    }, [images.length]);
+    }, []);
 
     const openModal = (index: number) => {
         setCurrentIndex(index);
@@ -113,7 +127,6 @@ export function Gallery() {
                                 <Image
                                     src={image}
                                     alt={`Foto de treino ${index + 1}`}
-                                    fill
                                     className="object-cover transition-opacity duration-300"
                                     style={{ opacity: loadedImages[index] ? 1 : 0 }}
                                     onLoad={() => handleImageLoad(index)}
@@ -170,7 +183,6 @@ export function Gallery() {
                                         <Image
                                             src={validImages[currentIndex]}
                                             alt={`Foto de treino ${currentIndex + 1}`}
-                                            fill
                                             className="object-contain transition-opacity duration-300"
                                             style={{ opacity: loadedImages[currentIndex] ? 1 : 0 }}
                                             onLoad={() => handleImageLoad(currentIndex)}
